@@ -1,6 +1,6 @@
 ﻿namespace _1_TypyGeneryczne
 {
-    public class CircularQueue
+    public class CircularBuffer
     {
         private double[] _buffer;
         private int _startOfBuffer;
@@ -24,12 +24,12 @@
             }
         }
 
-        public CircularQueue() : this(size: 5)
+        public CircularBuffer() : this(size: 5)
         {
 
         }
 
-        public CircularQueue(int size)
+        public CircularBuffer(int size)
         {
             _buffer = new double[size];
             _startOfBuffer = 0;

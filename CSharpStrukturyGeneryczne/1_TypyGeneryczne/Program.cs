@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _1_TypyGeneryczne
 {
@@ -12,8 +8,7 @@ namespace _1_TypyGeneryczne
         {
             var circularBuffer = new CircularBuffer(size: 3);
 
-            double value;
-            while (double.TryParse(Console.ReadLine(), out value))
+            while (double.TryParse(Console.ReadLine(), out double value))
             {
                 circularBuffer.Add(value);
             }

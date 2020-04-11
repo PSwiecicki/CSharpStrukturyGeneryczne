@@ -2,27 +2,9 @@
 {
     public class CircularBuffer
     {
-        private double[] _buffer;
-        private int _startOfBuffer;
-        private int _endOfBuffer;
-
-        public int BufferSize {
-            get {
-                return _buffer.Length;
-            }
-        }
-
-        public bool IsEmpty {
-            get {
-                return _startOfBuffer == _endOfBuffer;
-            }
-        }
-
-        public bool IsFull{
-            get {
-                return (_endOfBuffer + 1) % BufferSize == _startOfBuffer;
-            }
-        }
+        private double[] _Buffer;
+        private int _StartOfBuffer;
+        private int _EndOfBuffer;
 
         public CircularBuffer() : this(size: 5)
         {
@@ -31,26 +13,48 @@
 
         public CircularBuffer(int size)
         {
-            _buffer = new double[size];
-            _startOfBuffer = 0;
-            _endOfBuffer = 0;
+            _Buffer = new double[size];
+            _StartOfBuffer = 0;
+            _EndOfBuffer = 0;
+            IsEmpty = true;
+            IsFull = false;
         }
+
+        public int BufferSize {
+            get {
+                return _Buffer.Length;
+            }
+        }
+
+        public bool IsEmpty { get; set; }
+
+        public bool IsFull { get; set; }
 
         public void Add(double value)
         {
-            _buffer[_endOfBuffer] = value;
-            _endOfBuffer = (_endOfBuffer + 1) % BufferSize;
 
-            if(_endOfBuffer == _startOfBuffer)
+            if ((_EndOfBuffer == _StartOfBuffer) && !IsEmpty)
             {
-                _startOfBuffer = (_startOfBuffer + 1) % BufferSize;
+                _StartOfBuffer = (_StartOfBuffer + 1) % BufferSize;
+            }
+            IsEmpty = false;
+            _Buffer[_EndOfBuffer] = value;
+            _EndOfBuffer = (_EndOfBuffer + 1) % BufferSize;
+            if((_EndOfBuffer == _StartOfBuffer) && !IsEmpty)
+            {
+                IsFull = true;
             }
         }
 
         public double Get()
         {
-            var value = _buffer[_startOfBuffer];
-            _startOfBuffer = (_startOfBuffer + 1) % BufferSize;
+            if (IsEmpty)
+                return 0.0;
+            IsFull = false;
+            var value = _Buffer[_StartOfBuffer];
+            _StartOfBuffer = (_StartOfBuffer + 1) % BufferSize;
+            if (_EndOfBuffer == _StartOfBuffer)
+                IsEmpty = true;
             return value;
         }
     }

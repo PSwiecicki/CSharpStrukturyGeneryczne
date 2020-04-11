@@ -10,6 +10,19 @@ namespace _1_TypyGeneryczne
     {
         static void Main()
         {
+            var circularBuffer = new CircularBuffer(size: 3);
+
+            double value;
+            while (double.TryParse(Console.ReadLine(), out value))
+            {
+                circularBuffer.Add(value);
+            }
+            Console.WriteLine("W naszej kolejce są liczby: ");
+            while(!circularBuffer.IsEmpty)
+            {
+                Console.WriteLine($"Wartość = { circularBuffer.Get() }");
+            }
+            Console.ReadKey();
         }
     }
 }

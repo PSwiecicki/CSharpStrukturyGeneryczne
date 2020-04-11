@@ -8,7 +8,7 @@ namespace _1_TypyGeneryczne
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
         }
     }

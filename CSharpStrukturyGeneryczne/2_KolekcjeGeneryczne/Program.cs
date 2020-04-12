@@ -20,17 +20,17 @@ namespace _2_KolekcjeGeneryczne
                 new Worker { Name = "Jan", Surname = "Kowalski" },
                 new Worker { Name = "Grzegorz", Surname = "Brzęczyszczykiewicz" },
             };
-            //Wielkość tablicy sprawdzamy przez workers.Length;
             foreach (var worker in workers)
             {
                 Console.WriteLine($"Pracownik: {worker.Surname} {worker.Name}");
             }
             */
 
-            //Wielkość listy odczytujemy przez workers.Count;
-            //Pojemność odczytujemy przez workers.Capacity;
-            //Lista umożliwa dodawanie elementów, ale może zabierać dużo zasobów. Każde przekroczenie pojemności zwiększa ją dwukrotnie. 
-
+            //Lista umożliwa dodawanie elementów, ale może zabierać dużo zasobów. 
+            //Każde przekroczenie pojemności zwiększa ją dwukrotnie. 
+            //Możliwe jest usuwanie kpnkretnych elementów lub na wyznaczonych pozycjach 
+            //oraz sprawdzanie czy dany obiekt jest już na liście. 
+            /*
             List<Worker> workers = new List<Worker>()
             {
                 new Worker { Name = "Patryk", Surname = "Święcicki" },
@@ -42,6 +42,20 @@ namespace _2_KolekcjeGeneryczne
             foreach (var worker in workers)
             {
                 Console.WriteLine($"Pracownik: {worker.Surname} {worker.Name}");
+            }
+            */
+
+            //Queue
+            Queue<Worker> workers = new Queue<Worker>();
+            workers.Enqueue(new Worker { Name = "Patryk", Surname = "Słowik" });
+            workers.Enqueue(new Worker { Name = "Jacek", Surname = "Bocian" });
+            workers.Enqueue(new Worker { Name = "Kamil", Surname = "Kruk" });
+            workers.Enqueue(new Worker { Name = "Grzegorz", Surname = "Jastrząb" });
+
+            while (workers.Count != 0)
+            {
+                var worker = workers.Dequeue();
+                Console.WriteLine($"Pracownik: {worker.Surname} {worker.Name}.");
             }
 
             Console.ReadKey();

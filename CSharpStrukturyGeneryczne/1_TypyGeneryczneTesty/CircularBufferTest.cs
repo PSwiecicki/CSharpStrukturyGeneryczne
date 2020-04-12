@@ -10,7 +10,7 @@ namespace _1_TypyGeneryczneTesty
         [TestMethod]
         public void IsEmpty()
         {
-            var buffer = new CircularBuffer();
+            var buffer = new CircularBuffer<double>();
             Assert.IsTrue(buffer.IsEmpty);
         }
 
@@ -18,7 +18,7 @@ namespace _1_TypyGeneryczneTesty
         public void IsFull()
         {
             Random rand = new Random();
-            var buffer = new CircularBuffer(rand.Next(1, 21));
+            var buffer = new CircularBuffer<double>(rand.Next(1, 21));
             for (int i = 0; i < buffer.BufferSize; i++)
                 buffer.Add(i);
             Assert.IsTrue(buffer.IsFull);
@@ -30,7 +30,7 @@ namespace _1_TypyGeneryczneTesty
             Random rand = new Random();
             int size = rand.Next(1, 21);
             double[] testValues = new double[size];
-            var buffer = new CircularBuffer(size);
+            var buffer = new CircularBuffer<double>(size);
             for(int i = 0; i < size; i++)
             {
                 testValues[i] = rand.Next(0, 101) * rand.NextDouble();
@@ -48,7 +48,7 @@ namespace _1_TypyGeneryczneTesty
             Random rand = new Random();
             int size = rand.Next(1, 11);
             double[] testValues = new double[2 * size];
-            var buffer = new CircularBuffer(size);
+            var buffer = new CircularBuffer<double>(size);
             for (int i = 0; i < 2*size; i++)
             {
                 testValues[i] = rand.Next(0, 101) * rand.NextDouble();
@@ -65,7 +65,7 @@ namespace _1_TypyGeneryczneTesty
         [TestMethod]
         public void FullAndEmpty()
         {
-            var buffer = new CircularBuffer(3);
+            var buffer = new CircularBuffer<double>(3);
             Assert.IsTrue(buffer.IsEmpty);
             Assert.IsFalse(buffer.IsFull);
             buffer.Add(1);

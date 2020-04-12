@@ -1,8 +1,8 @@
 ﻿namespace _1_TypyGeneryczne
 {
-    public class CircularBuffer
+    public class CircularBuffer<T>
     {
-        private double[] _Buffer;
+        private T[] _Buffer;
         private int _StartOfBuffer;
         private int _EndOfBuffer;
 
@@ -13,7 +13,7 @@
 
         public CircularBuffer(int size)
         {
-            _Buffer = new double[size];
+            _Buffer = new T[size];
             _StartOfBuffer = 0;
             _EndOfBuffer = 0;
             IsEmpty = true;
@@ -30,7 +30,7 @@
 
         public bool IsFull { get; set; }
 
-        public void Add(double value)
+        public void Add(T value)
         {
 
             if ((_EndOfBuffer == _StartOfBuffer) && !IsEmpty)
@@ -46,10 +46,10 @@
             }
         }
 
-        public double Get()
+        public T Get()
         {
             if (IsEmpty)
-                return 0.0;
+                return default;
             IsFull = false;
             var value = _Buffer[_StartOfBuffer];
             _StartOfBuffer = (_StartOfBuffer + 1) % BufferSize;

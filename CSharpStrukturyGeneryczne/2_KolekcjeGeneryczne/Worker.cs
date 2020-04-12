@@ -1,6 +1,8 @@
 ﻿namespace _2_KolekcjeGeneryczne
 {
-    internal class Worker
+    public class Worker
     {
+        public string Name { get; set; }
+        public string Surname { get; set; } 
     }
 }

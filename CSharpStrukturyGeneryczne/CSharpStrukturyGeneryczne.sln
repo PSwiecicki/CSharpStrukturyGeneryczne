@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1_TypyGeneryczneTesty", "1_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2_KolekcjeGeneryczneTesty", "2_KolekcjeGeneryczneTesty\2_KolekcjeGeneryczneTesty.csproj", "{1B8640FC-EBAB-4BC1-9376-7E89A7D9383A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3_KlasyIInterfejsyGeneryczne", "3_KlasyIInterfejsyGeneryczne\3_KlasyIInterfejsyGeneryczne.csproj", "{82E392FE-F847-4A74-A3EE-8619E07AE4D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4_MetodyDelegatyGeneryczne", "4_MetodyDelegatyGeneryczne\4_MetodyDelegatyGeneryczne.csproj", "{A517A6D9-A545-4543-A7C5-B3C0271FB461}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{1B8640FC-EBAB-4BC1-9376-7E89A7D9383A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B8640FC-EBAB-4BC1-9376-7E89A7D9383A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B8640FC-EBAB-4BC1-9376-7E89A7D9383A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82E392FE-F847-4A74-A3EE-8619E07AE4D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82E392FE-F847-4A74-A3EE-8619E07AE4D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82E392FE-F847-4A74-A3EE-8619E07AE4D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82E392FE-F847-4A74-A3EE-8619E07AE4D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A517A6D9-A545-4543-A7C5-B3C0271FB461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A517A6D9-A545-4543-A7C5-B3C0271FB461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A517A6D9-A545-4543-A7C5-B3C0271FB461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A517A6D9-A545-4543-A7C5-B3C0271FB461}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

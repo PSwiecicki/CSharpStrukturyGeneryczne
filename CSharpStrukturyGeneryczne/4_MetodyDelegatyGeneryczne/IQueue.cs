@@ -9,5 +9,6 @@ namespace _4_MetodyDelegatyGeneryczne
 
         void Add(T value);
         T Get();
+
     }
 }

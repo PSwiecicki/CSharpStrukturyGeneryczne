@@ -54,5 +54,6 @@ namespace _4_MetodyDelegatyGeneryczne
             return GetEnumerator();
         }
 
+
     }
 }

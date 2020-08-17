@@ -8,10 +8,24 @@ namespace _4_MetodyDelegatyGeneryczne
 {
     class Program
     {
+        static void CW<T>(T data)
+        {
+            Console.WriteLine(data);
+        }
+
         static void Main()
         {
+            Action<double> print = CW;
+
+
             var circularBuffer = new CircularQueue<double>();
             AddDataToBuffer(circularBuffer);
+
+            //var circularBufferToInt = circularBuffer.ItemTo<double, int>();
+
+
+            circularBuffer.Print(print);
+
             ReadDataFromBuffer(circularBuffer);
         }
 

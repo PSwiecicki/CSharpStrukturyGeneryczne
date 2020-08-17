@@ -19,4 +19,3 @@ namespace _2_KolekcjeGeneryczne
         }
     }
 }
-++

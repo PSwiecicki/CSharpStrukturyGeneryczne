@@ -1,4 +1,6 @@
-﻿namespace _4_MetodyDelegatyGeneryczne
+﻿using System;
+
+namespace _4_MetodyDelegatyGeneryczne
 {
     public class CircularQueue<T> : BigQueue<T>
     {
@@ -12,7 +14,20 @@
         {
             base.Add(value);
             if (queue.Count > _size)
-                queue.Dequeue();
+            {
+                var removed = queue.Dequeue();
+                AfterRemove(removed, value);
+            }
+
+        }
+
+        private void AfterRemove(T removed, T value)
+        {
+            if(removed != null)
+            {
+                var args = new ItemRemovedEventArgs<T>(removed, value);
+                itemRemoved(this, args);
+            }
         }
 
         public override bool IsFull
@@ -22,5 +37,9 @@
                 return queue.Count == _size;
             }
         }
+
+        public event EventHandler<ItemRemovedEventArgs<T>> itemRemoved;
+    
     }
+
 }

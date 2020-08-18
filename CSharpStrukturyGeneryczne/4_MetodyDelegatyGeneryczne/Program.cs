@@ -11,7 +11,8 @@ namespace _4_MetodyDelegatyGeneryczne
     {
         static void Main()
         {
-            var circularBuffer = new CircularQueue<double>();
+            var circularBuffer = new CircularQueue<double>(size:3);
+            circularBuffer.itemRemoved += CircularBuffer_itemRemoved;
             AddDataToBuffer(circularBuffer);
 
             //Action to delegat który nic nie zwraca, i przyjmuje ilosć parametrów od 0 do 16.
@@ -44,6 +45,11 @@ namespace _4_MetodyDelegatyGeneryczne
             ReadDataFromBuffer(circularBuffer);
         }
 
+        private static void CircularBuffer_itemRemoved(object sender, ItemRemovedEventArgs<double> e)
+        {
+            Console.WriteLine($"Kolejka jest pełna. Zamieniono element {e.ItemRemoved} na {e.ItemAdded}.");
+        }
+
         private static void ReadDataFromBuffer(IQueue<double> buffer)
         {
             while (!buffer.IsEmpty)
@@ -62,5 +68,18 @@ namespace _4_MetodyDelegatyGeneryczne
             }
             Console.WriteLine("W naszej kolejce są liczby: ");
         }
+    }
+
+    public class ItemRemovedEventArgs<T> : EventArgs
+    {
+        public T ItemRemoved { get; set; }
+        public T ItemAdded { get; set; }
+
+        public ItemRemovedEventArgs(T itemRemoved, T itemAdded)
+        {
+            ItemAdded = itemAdded;
+            ItemRemoved = itemRemoved;
+        }
+
     }
 }
